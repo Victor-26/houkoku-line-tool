@@ -10,7 +10,7 @@
     "post": "node scripts/post-line.js"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
+    "@google/genai": "^1.48.0",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0-rc.12",
     "js-yaml": "^4.1.0",

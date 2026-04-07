@@ -2,7 +2,7 @@
  * Gemini APIを使って記事をフィルタリング・スコアリングする
  */
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CONFIG_PATH = path.join(__dirname, '..', 'config.yml');
 const PROMPT_PATH = path.join(__dirname, '..', 'prompts', 'filter.md');
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 function loadConfig() {
   return yaml.load(fs.readFileSync(CONFIG_PATH, 'utf8'));
@@ -58,15 +58,15 @@ export async function filterNews(articles) {
 
   console.log(`[filter] ${articles.length}件の記事をGeminiで評価中...`);
 
-  const model = genAI.getGenerativeModel({
-    model: 'gemini-1.5-flash',
-    generationConfig: {
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.0-flash',
+    contents: prompt,
+    config: {
       responseMimeType: 'application/json',
     },
   });
 
-  const result = await model.generateContent(prompt);
-  const rawText = result.response.text().trim();
+  const rawText = response.text.trim();
 
   let scored;
   try {
