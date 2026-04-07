@@ -31,22 +31,32 @@ filter:
 
 # ニュース取得設定
 news:
-  # 取得するRSSフィード（日経電子版）
-  rss_feeds:
-    - name: "日経 総合"
-      url: "https://www.nikkei.com/rss/index.html"
-    - name: "日経 経済"
-      url: "https://www.nikkei.com/rss/economy.html"
-    - name: "日経 産業"
-      url: "https://www.nikkei.com/rss/industry.html"
-    - name: "日経 テクノロジー"
-      url: "https://www.nikkei.com/rss/technology.html"
-    - name: "日経 マーケット"
-      url: "https://www.nikkei.com/rss/market.html"
-    - name: "日経 中小企業"
-      url: "https://www.nikkei.com/rss/sme.html"
   # 何時間以内の記事を対象にするか
   hours_back: 24
+
+  # ── RSS フィード ──────────────────────────────────
+  rss_feeds:
+    # NHK ニュース（ビジネス・経済）
+    - name: "NHK 経済"
+      url: "https://www.nhk.or.jp/rss/news/cat6.xml"
+    # Yahoo!ニュース 経済
+    - name: "Yahoo!ニュース 経済"
+      url: "https://news.yahoo.co.jp/rss/categories/business.xml"
+    # ITmedia ものづくり（製造業DX・技術動向）
+    - name: "ITmedia ものづくり"
+      url: "https://rss.itmedia.co.jp/rss/2.0/makoto.xml"
+
+  # ── スクレイピング（RSS 非対応サイト）──────────────
+  scrape_sites:
+    # 日刊鉄鋼新聞（製造業・金属市況に特化した専門紙）
+    - name: "日刊鉄鋼新聞"
+      url: "https://www.japanmetaldaily.com/"
+      # 記事タイトル付きリンクの CSS セレクタ
+      article_selector: "a.top-headlines-item__ttl"
+      # 日時セレクタ（記事リンクの直後の要素内）
+      datetime_selector: "time.c-date"
+      # リンクの基準 URL（相対パス解決用）
+      base_url: "https://www.japanmetaldaily.com"
 
 # LINE設定
 line:

@@ -81,6 +81,7 @@ export async function filterNews(articles) {
     .map((s) => ({
       ...articles[s.index],
       score: s.score,
+      category: s.category || '業界動向',
       reason: s.reason,
       one_line_summary: s.one_line_summary,
     }));
