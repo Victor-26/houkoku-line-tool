@@ -1,9 +1,9 @@
 /**
- * Gemini APIを使って記事をフィルタリング・スコアリングする
- * 品質優先モード: リトライ・2パスフィルタリング対応
+ * GitHub Models APIを使って記事をフィルタリング・スコアリングする
+ * GitHub Actions の GITHUB_TOKEN で動作（外部APIキー不要・無料）
  */
 
-import { GoogleGenAI } from '@google/genai';
+import OpenAI from 'openai';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
@@ -13,7 +13,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CONFIG_PATH = path.join(__dirname, '..', 'config.yml');
 const PROMPT_PATH = path.join(__dirname, '..', 'prompts', 'filter.md');
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// GitHub Models エンドポイント（GITHUB_TOKEN で認証）
+const client = new OpenAI({
+  baseURL: 'https://models.inference.ai.azure.com',
+  apiKey: process.env.GITHUB_TOKEN,
+});
 
 const VALID_CATEGORIES = new Set([
   'コスト・原材料', '補助金・支援策', '人材・採用', 'DX・技術',
@@ -57,26 +61,25 @@ function sleep(ms) {
 }
 
 /**
- * リトライ付き Gemini API 呼び出し
+ * リトライ付き GitHub Models API 呼び出し
  */
-async function callGeminiWithRetry(model, prompt, retryConfig) {
+async function callWithRetry(model, prompt, retryConfig) {
   const { max_attempts, delay_seconds } = retryConfig;
 
   for (let attempt = 1; attempt <= max_attempts; attempt++) {
     try {
-      console.log(`[filter] Gemini 呼び出し (試行 ${attempt}/${max_attempts})...`);
+      console.log(`[filter] GitHub Models 呼び出し (試行 ${attempt}/${max_attempts}, モデル: ${model})...`);
 
-      const response = await ai.models.generateContent({
+      const response = await client.chat.completions.create({
         model,
-        contents: prompt,
-        config: { responseMimeType: 'application/json' },
+        messages: [{ role: 'user', content: prompt }],
+        response_format: { type: 'json_object' },
+        temperature: 0.3,
       });
 
-      return response.text.trim();
+      return response.choices[0].message.content.trim();
     } catch (err) {
-      const isRetryable = err.message?.includes('429') ||
-                          err.message?.includes('503') ||
-                          err.message?.includes('500');
+      const isRetryable = err.status === 429 || err.status === 503 || err.status === 500;
 
       if (attempt < max_attempts && isRetryable) {
         const waitMs = delay_seconds * attempt * 1000;
@@ -90,11 +93,13 @@ async function callGeminiWithRetry(model, prompt, retryConfig) {
 }
 
 /**
- * JSON テキストをパースする（```json ブロック対応）
+ * JSON テキストをパースする
  */
 function parseJson(rawText) {
   try {
-    return JSON.parse(rawText);
+    const parsed = JSON.parse(rawText);
+    // { articles: [...] } 形式にも対応
+    return Array.isArray(parsed) ? parsed : (parsed.articles || parsed.results || Object.values(parsed)[0]);
   } catch {
     const match = rawText.match(/```json\s*([\s\S]*?)\s*```/) ||
                   rawText.match(/(\[[\s\S]*\])/);
@@ -147,7 +152,7 @@ export async function filterNews(articles) {
 
   const config = loadConfig();
   const { filter } = config;
-  const model = filter.model || 'gemini-2.0-flash';
+  const model = filter.model || 'gpt-4o-mini';
   const retryConfig = filter.retry || { max_attempts: 3, delay_seconds: 10 };
   const twoPass = filter.two_pass || { enabled: false };
 
@@ -162,7 +167,7 @@ export async function filterNews(articles) {
     console.log(`\n[filter] 第1パス: ${articles.length}件 → 上位${firstPassLimit}件に絞り込み中...`);
 
     const prompt1 = buildPrompt(config, articles, firstPassLimit);
-    const rawText1 = await callGeminiWithRetry(model, prompt1, retryConfig);
+    const rawText1 = await callWithRetry(model, prompt1, retryConfig);
     const scored1 = parseJson(rawText1);
     targetArticles = mergeWithArticles(scored1, articles, firstPassLimit);
 
@@ -173,7 +178,7 @@ export async function filterNews(articles) {
   console.log(`\n[filter] ${twoPass.enabled ? '第2パス' : '評価'}: ${targetArticles.length}件から最終${filter.max_articles}件を選定中...`);
 
   const prompt2 = buildPrompt(config, targetArticles, filter.max_articles);
-  const rawText2 = await callGeminiWithRetry(model, prompt2, retryConfig);
+  const rawText2 = await callWithRetry(model, prompt2, retryConfig);
   const scored2 = parseJson(rawText2);
   const result = mergeWithArticles(scored2, targetArticles, filter.max_articles);
 

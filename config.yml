@@ -30,10 +30,11 @@ filter:
     enabled: true        # true にすると2段階評価（精度向上・API2回分）
     first_pass_limit: 20 # 第1パスで何件に絞るか
 
-  # 使用するAIモデル
-  # 高品質: gemini-1.5-pro（遅い・高精度）
-  # 標準:   gemini-2.0-flash（速い・十分な精度）
-  model: "gemini-1.5-pro"
+  # 使用するAIモデル（GitHub Models 経由・無料）
+  # 高品質: gpt-4o（精度最高）
+  # 標準:   gpt-4o-mini（高速・十分な精度・推奨）
+  # 無料OSSモデル: meta-llama-3.1-70b-instruct
+  model: "gpt-4o-mini"
 
   # APIリトライ設定（一時障害に対応）
   retry:
