@@ -2,15 +2,16 @@ name: 毎朝ニュース通知
 
 on:
   schedule:
-    # 平日の朝7:30 JST (= 前日 22:30 UTC)
-    - cron: "30 22 * * 0-4"
+    # 毎日 朝6:00 JST (= 前日 21:00 UTC) ※土日祝も含む
+    - cron: "0 21 * * *"
   # 手動実行も可能
   workflow_dispatch:
 
 jobs:
   send-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # 品質優先のため余裕を持ったタイムアウト設定
+    timeout-minutes: 30
     # 必要最小限の権限のみ付与
     permissions:
       contents: read

@@ -24,6 +24,22 @@ filter:
   max_articles: 7
   # この点数以上の記事を送る（10点満点）
   min_score: 6
+  # 2パスフィルタリング（品質優先）
+  # 第1パスで候補を絞ってから、第2パスで最終選定する
+  two_pass:
+    enabled: true        # true にすると2段階評価（精度向上・API2回分）
+    first_pass_limit: 20 # 第1パスで何件に絞るか
+
+  # 使用するAIモデル
+  # 高品質: gemini-1.5-pro（遅い・高精度）
+  # 標準:   gemini-2.0-flash（速い・十分な精度）
+  model: "gemini-1.5-pro"
+
+  # APIリトライ設定（一時障害に対応）
+  retry:
+    max_attempts: 3      # 最大リトライ回数
+    delay_seconds: 10    # リトライ間隔（秒）
+
   # AIへの補足指示（任意）
   additional_instructions: |
     以下の観点を重視してください:
@@ -33,8 +49,8 @@ filter:
 
 # ニュース取得設定
 news:
-  # 何時間以内の記事を対象にするか
-  hours_back: 24
+  # 何時間以内の記事を対象にするか（6時実行のため前日分をカバー）
+  hours_back: 30
 
   # ── RSS フィード ──────────────────────────────────
   rss_feeds:
@@ -63,8 +79,8 @@ news:
 # LINE設定
 line:
   # 通知する時刻（GitHub Actionsのcron用）
-  # 平日の朝7:30 JST に通知
-  schedule: "30 22 * * 0-4"  # UTC換算（JST -9h）
+  # 毎日 朝6:00 JST（土日含む）
+  schedule: "0 21 * * *"  # UTC換算（JST -9h）
   # メッセージのヘッダー
   header: "📰 今日の注目ニュース"
   # フッター
