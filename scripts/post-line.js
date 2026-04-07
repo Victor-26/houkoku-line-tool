@@ -14,13 +14,15 @@ const LINE_API_URL = 'https://api.line.me/v2/bot/message/push';
 
 // カテゴリ別のカラーとアイコン設定
 const CATEGORY_STYLES = {
-  'コスト・原材料': { color: '#E74C3C', bg: '#FDEDEC', icon: '📦' },
-  '補助金・支援策': { color: '#27AE60', bg: '#EAFAF1', icon: '💰' },
-  '人材・採用':     { color: '#2980B9', bg: '#EBF5FB', icon: '👥' },
-  'DX・技術':       { color: '#8E44AD', bg: '#F5EEF8', icon: '⚙️' },
-  '市場・経済':     { color: '#D35400', bg: '#FEF9E7', icon: '📈' },
-  '法規制・政策':   { color: '#7F8C8D', bg: '#F2F3F4', icon: '📋' },
-  '業界動向':       { color: '#1A5276', bg: '#EBF5FB', icon: '🏭' },
+  'コスト・原材料':   { color: '#E74C3C', bg: '#FDEDEC', icon: '📦' },
+  '補助金・支援策':   { color: '#27AE60', bg: '#EAFAF1', icon: '💰' },
+  '人材・採用':       { color: '#2980B9', bg: '#EBF5FB', icon: '👥' },
+  'DX・技術':         { color: '#8E44AD', bg: '#F5EEF8', icon: '⚙️' },
+  '市場・経済':       { color: '#D35400', bg: '#FEF9E7', icon: '📈' },
+  '法規制・政策':     { color: '#7F8C8D', bg: '#F2F3F4', icon: '📋' },
+  '業界動向':         { color: '#1A5276', bg: '#EBF5FB', icon: '🏭' },
+  '水耕栽培・植物工場': { color: '#16A085', bg: '#E8F8F5', icon: '🌱' },
+  'マテハン':         { color: '#B7770D', bg: '#FEF5E7', icon: '🏗️' },
 };
 
 function loadConfig() {
