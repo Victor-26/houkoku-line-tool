@@ -22,7 +22,6 @@ const CATEGORY_STYLES = {
   '業界動向':           { color: '#1A5276', bg: '#EBF5FB', icon: '🏭' },
   '水耕栽培・植物工場': { color: '#16A085', bg: '#E8F8F5', icon: '🌱' },
   'マテハン':           { color: '#B7770D', bg: '#FEF5E7', icon: '🏗️' },
-  '世界の政治経済':     { color: '#1F618D', bg: '#EBF5FB', icon: '🌏' },
   '最新建築情報':       { color: '#6C3483', bg: '#F5EEF8', icon: '🏢' },
 };
 

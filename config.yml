@@ -17,13 +17,12 @@ user_profile:
     - "競合・業界再編の動き"
     - "水耕栽培・植物工場・農業テクノロジーの動向"
     - "マテハン（マテリアルハンドリング）・物流機器・自動搬送の動向"
-    - "世界の政治・経済動向（製造業・貿易・通商政策への影響）"
     - "最新建築・建設情報（建設需要・資材・工法・法規制）"
 
 # AIフィルタリング設定
 filter:
   # 1回の通知で送る記事の最大数
-  max_articles: 9
+  max_articles: 8
   # この点数以上の記事を送る（10点満点）
   min_score: 6
   # 2パスフィルタリング（品質優先）
@@ -66,13 +65,6 @@ news:
     # ITmedia ものづくり（製造業DX・技術動向）
     - name: "ITmedia ものづくり"
       url: "https://rss.itmedia.co.jp/rss/2.0/makoto.xml"
-    # ── 世界の政治経済 ──
-    # Yahoo!ニュース 国際
-    - name: "Yahoo!ニュース 国際"
-      url: "https://news.yahoo.co.jp/rss/categories/world.xml"
-    # Google News（世界・政治・経済キーワード検索）
-    - name: "Google News 世界経済"
-      url: "https://news.google.com/rss/search?q=%E4%B8%96%E7%95%8C+%E6%94%BF%E6%B2%BB+%E7%B5%8C%E6%B8%88&hl=ja&gl=JP&ceid=JP:ja"
     # ── 最新建築情報 ──
     # 建設通信新聞
     - name: "建設通信新聞"
