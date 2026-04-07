@@ -25,6 +25,58 @@ const VALID_CATEGORIES = new Set([
   '世界の政治経済', '最新建築情報',
 ]);
 
+// AIに送る前のキーワード事前絞り込み
+// 関連性の高い記事だけを選別してトークン消費を抑える
+const PREFILTER_KEYWORDS = [
+  // 製造業・コスト
+  '製造', '工場', '鉄鋼', '金属', '鉄', 'アルミ', '銅', '鉄スクラップ',
+  '原材料', 'コスト', '物価', '値上げ', '価格', '原油', 'エネルギー',
+  // 中小企業・経営
+  '中小企業', '補助金', '助成金', '支援', '融資', '経営', '倒産',
+  // 製造業技術
+  'DX', 'IoT', 'AI', 'ロボット', '自動化', 'デジタル', 'スマート工場',
+  'マテハン', '搬送', '物流', 'AGV', '自動搬送',
+  // 農業・植物工場
+  '水耕', '植物工場', 'アグリ', '農業',
+  // 市場・経済
+  '円安', '円高', '為替', '金利', '株価', '景気', '賃金', '賃上げ',
+  // 法規制
+  '規制', '法改正', '補助', '税制', '関税', '通商',
+  // 建築・建設
+  '建築', '建設', '工事', '住宅', 'ゼネコン', '建材', 'コンクリート',
+  '鉄筋', '土木', '都市', '再開発',
+  // 世界・政治経済
+  'トランプ', '関税', '貿易', 'サプライチェーン', '中国', '米国',
+  '欧州', '地政学', '戦争', '紛争', 'ウクライナ', '中東', '原油',
+  '人手不足', '採用', '労働',
+];
+
+/**
+ * AIに送る前にキーワードで事前絞り込みする
+ * @param {Array} articles - 全記事
+ * @param {number} limit - 最大件数
+ */
+function prefilterArticles(articles, limit = 50) {
+  const keywords = PREFILTER_KEYWORDS;
+
+  // 各記事のキーワードマッチ数でスコアリング
+  const scored = articles.map((article) => {
+    const text = `${article.title} ${article.summary}`;
+    const matchCount = keywords.filter((kw) => text.includes(kw)).length;
+    return { article, matchCount };
+  });
+
+  // マッチ数が多い順に並べ、上位 limit 件を返す
+  // マッチ0件でも件数が足りない場合は含める
+  const sorted = scored.sort((a, b) => b.matchCount - a.matchCount);
+  const result = sorted.slice(0, limit).map((s) => s.article);
+
+  const matched = scored.filter((s) => s.matchCount > 0).length;
+  console.log(`[prefilter] ${articles.length}件 → ${result.length}件に絞り込み（キーワードマッチ: ${matched}件）`);
+
+  return result;
+}
+
 function loadConfig() {
   return yaml.load(fs.readFileSync(CONFIG_PATH, 'utf8'));
 }
@@ -36,12 +88,12 @@ function buildPrompt(config, articles, overrideMaxArticles = null) {
   const template = fs.readFileSync(PROMPT_PATH, 'utf8');
   const { user_profile, filter } = config;
 
+  // トークン節約: タイトルと短い要約のみ送る（URLは省略）
   const articlesForAI = articles.map((a, i) => ({
     index: i,
     source: a.source,
     title: a.title,
-    summary: a.summary.slice(0, 200),
-    url: a.url,
+    summary: a.summary.slice(0, 80),
   }));
 
   return template
@@ -160,10 +212,18 @@ export async function filterNews(articles) {
   console.log(`[filter] モデル: ${model}`);
   console.log(`[filter] 2パスフィルタリング: ${twoPass.enabled ? '有効' : '無効'}`);
 
-  let targetArticles = articles;
+  // ── キーワード事前絞り込み（トークン上限対策）──────────
+  // gpt-4o-mini の上限は8,000トークン。133件をそのまま送ると超過するため
+  // 関連キーワードでスコアリングして上位50件のみAIに渡す
+  const prefilterLimit = twoPass.enabled
+    ? (twoPass.first_pass_limit || 20) * 3  // 2パス時は余裕を持って
+    : 50;
+  const prescreened = prefilterArticles(articles, prefilterLimit);
+
+  let targetArticles = prescreened;
 
   // ── 第1パス：大量記事を絞り込む ──────────────────────
-  if (twoPass.enabled && articles.length > (twoPass.first_pass_limit || 20)) {
+  if (twoPass.enabled && prescreened.length > (twoPass.first_pass_limit || 20)) {
     const firstPassLimit = twoPass.first_pass_limit || 20;
     console.log(`\n[filter] 第1パス: ${articles.length}件 → 上位${firstPassLimit}件に絞り込み中...`);
 
