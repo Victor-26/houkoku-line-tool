@@ -80,16 +80,38 @@ export async function filterNews(articles) {
     scored = JSON.parse(jsonMatch[1]);
   }
 
-  // インデックスを元の記事と紐付けて返す
+  // AI応答の各フィールドを検証してから元記事と紐付ける
+  const VALID_CATEGORIES = new Set([
+    'コスト・原材料', '補助金・支援策', '人材・採用', 'DX・技術',
+    '市場・経済', '法規制・政策', '業界動向', '水耕栽培・植物工場', 'マテハン',
+  ]);
+
   const result2 = scored
-    .sort((a, b) => b.score - a.score)
+    .filter((s) => {
+      const idx = Number(s.index);
+      const score = Number(s.score);
+      if (!Number.isInteger(idx) || idx < 0 || idx >= articles.length) {
+        console.warn(`[filter] 無効なindex (${s.index}) をスキップ`);
+        return false;
+      }
+      if (!Number.isFinite(score) || score < 0 || score > 10) {
+        console.warn(`[filter] 無効なscore (${s.score}) をスキップ`);
+        return false;
+      }
+      if (!s.one_line_summary || !s.reason) {
+        console.warn(`[filter] 必須フィールド不足のためスキップ (index=${s.index})`);
+        return false;
+      }
+      return true;
+    })
+    .sort((a, b) => Number(b.score) - Number(a.score))
     .slice(0, config.filter.max_articles)
     .map((s) => ({
-      ...articles[s.index],
-      score: s.score,
-      category: s.category || '業界動向',
-      reason: s.reason,
-      one_line_summary: s.one_line_summary,
+      ...articles[Number(s.index)],
+      score: Number(s.score),
+      category: VALID_CATEGORIES.has(s.category) ? s.category : '業界動向',
+      reason: String(s.reason).slice(0, 100),
+      one_line_summary: String(s.one_line_summary).slice(0, 120),
     }));
 
   console.log(`[filter] ${result2.length}件の記事が選ばれました`);

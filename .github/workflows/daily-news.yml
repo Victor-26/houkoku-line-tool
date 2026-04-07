@@ -11,6 +11,9 @@ jobs:
   send-news:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # 必要最小限の権限のみ付与
+    permissions:
+      contents: read
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -25,7 +28,8 @@ jobs:
           cache: "npm"
 
       - name: 依存関係をインストール
-        run: npm install
+        # npm ci はpackage-lock.jsonに従い再現性が高い
+        run: npm ci
 
       - name: ニュースを取得してLINEに通知
         env:

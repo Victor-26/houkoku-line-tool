@@ -51,30 +51,46 @@ function buildArticleBubble(article, index) {
       type: 'box',
       layout: 'horizontal',
       contents: [
+        // ベストプラクティス: 左ボーダーで色覚多様性に対応
         {
-          type: 'text',
-          text: `${style.icon} ${article.category}`,
-          size: 'xs',
-          weight: 'bold',
-          color: style.color,
-          flex: 1,
+          type: 'box',
+          layout: 'vertical',
+          contents: [],
+          width: '4px',
+          backgroundColor: style.color,
         },
         {
-          type: 'text',
-          text: `${index + 1} / ${stars}`,
-          size: 'xs',
-          color: '#F5A623',
-          align: 'end',
+          type: 'box',
+          layout: 'horizontal',
+          flex: 1,
+          paddingAll: '10px',
+          contents: [
+            {
+              type: 'text',
+              text: `${style.icon} ${article.category}`,
+              size: 'xs',
+              weight: 'bold',
+              color: style.color,
+              flex: 1,
+            },
+            {
+              type: 'text',
+              text: `${index + 1}/7 ${stars}`,
+              size: 'xs',
+              color: '#E8A000',
+              align: 'end',
+            },
+          ],
         },
       ],
       backgroundColor: style.bg,
-      paddingAll: '10px',
+      paddingAll: '0px',
     },
     body: {
       type: 'box',
       layout: 'vertical',
       spacing: 'sm',
-      paddingAll: '14px',
+      paddingAll: '16px',
       contents: [
         {
           type: 'text',
@@ -84,6 +100,8 @@ function buildArticleBubble(article, index) {
           wrap: true,
           color: '#1A1A1A',
           maxLines: 3,
+          // ベストプラクティス: ユーザーのフォントサイズ設定に追従
+          scaling: true,
         },
         {
           type: 'separator',
@@ -105,10 +123,12 @@ function buildArticleBubble(article, index) {
               type: 'text',
               text: article.reason,
               size: 'xs',
-              color: '#555555',
+              color: '#444444',
               wrap: true,
               flex: 1,
               margin: 'sm',
+              // ベストプラクティス: テキスト折り返し必須
+              scaling: true,
             },
           ],
         },
@@ -116,7 +136,7 @@ function buildArticleBubble(article, index) {
           type: 'text',
           text: article.source,
           size: 'xxs',
-          color: '#AAAAAA',
+          color: '#888888',
           align: 'end',
           margin: 'sm',
         },
@@ -125,7 +145,7 @@ function buildArticleBubble(article, index) {
     footer: {
       type: 'box',
       layout: 'vertical',
-      paddingAll: '10px',
+      paddingAll: '12px',
       contents: [
         {
           type: 'button',
@@ -136,7 +156,10 @@ function buildArticleBubble(article, index) {
           },
           style: 'primary',
           color: style.color,
-          height: 'sm',
+          // ベストプラクティス: タッチターゲット 44px以上 → md = 52px
+          height: 'md',
+          // ベストプラクティス: テキストが溢れた場合に自動縮小
+          adjustMode: 'shrink-to-fit',
         },
       ],
     },
@@ -213,9 +236,10 @@ function buildHeaderBubble(articles, today) {
           type: 'text',
           text: `本日の厳選 ${articles.length} 記事`,
           size: 'sm',
-          color: '#555555',
+          color: '#333333',
           margin: 'lg',
           weight: 'bold',
+          scaling: true,
         },
         ...categoryLines,
         {
@@ -282,7 +306,8 @@ export async function postToLine(articles) {
     messages = [
       {
         type: 'flex',
-        altText: `📰 今日の注目ニュース ${today} (${articles.length}件)`,
+        // ベストプラクティス: altText は10語以内・価値を先頭に・日付と件数を含む
+        altText: `📰 ${today} 厳選${articles.length}記事 — コスト・補助金・製造業最新情報`,
         contents: {
           type: 'carousel',
           contents: bubbles,

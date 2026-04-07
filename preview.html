@@ -23,191 +23,190 @@
     <!-- チャットエリア -->
     <div class="bg-[#8B9DC3] px-3 py-4 space-y-3 overflow-y-auto max-h-[800px]">
 
-      <!-- Bot アイコン + メッセージ列 -->
       <div class="flex items-start gap-2">
         <div class="w-9 h-9 rounded-full bg-[#06C755] flex items-center justify-center text-lg flex-shrink-0">🤖</div>
 
-        <!-- カード縦並び -->
         <div class="flex flex-col gap-2 flex-1">
 
           <!-- サマリーカード -->
           <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="p-3">
+            <div class="p-4">
               <div class="text-base font-bold text-gray-900">📰 今日の注目ニュース</div>
               <div class="text-xs text-gray-400 mt-0.5">2026年4月7日（火）</div>
-              <hr class="my-2 border-gray-100">
-              <div class="text-xs font-bold text-gray-600 mb-2">本日の厳選 7 記事</div>
-              <div class="space-y-1">
+              <hr class="my-3 border-gray-100">
+              <div class="text-sm font-bold text-gray-700 mb-2">本日の厳選 7 記事</div>
+              <div class="space-y-1.5">
                 <div class="flex justify-between text-xs">
-                  <span class="text-[#E74C3C] font-medium">📦 コスト・原材料</span>
-                  <span class="text-gray-400">2件</span>
+                  <span class="text-[#E74C3C] font-semibold">📦 コスト・原材料</span>
+                  <span class="text-gray-500 font-medium">2件</span>
                 </div>
                 <div class="flex justify-between text-xs">
-                  <span class="text-[#27AE60] font-medium">💰 補助金・支援策</span>
-                  <span class="text-gray-400">1件</span>
+                  <span class="text-[#27AE60] font-semibold">💰 補助金・支援策</span>
+                  <span class="text-gray-500 font-medium">1件</span>
                 </div>
                 <div class="flex justify-between text-xs">
-                  <span class="text-[#8E44AD] font-medium">⚙️ DX・技術</span>
-                  <span class="text-gray-400">1件</span>
+                  <span class="text-[#8E44AD] font-semibold">⚙️ DX・技術</span>
+                  <span class="text-gray-500 font-medium">1件</span>
                 </div>
                 <div class="flex justify-between text-xs">
-                  <span class="text-[#D35400] font-medium">📈 市場・経済</span>
-                  <span class="text-gray-400">1件</span>
+                  <span class="text-[#D35400] font-semibold">📈 市場・経済</span>
+                  <span class="text-gray-500 font-medium">1件</span>
                 </div>
                 <div class="flex justify-between text-xs">
-                  <span class="text-[#16A085] font-medium">🌱 水耕栽培・植物工場</span>
-                  <span class="text-gray-400">1件</span>
+                  <span class="text-[#16A085] font-semibold">🌱 水耕栽培・植物工場</span>
+                  <span class="text-gray-500 font-medium">1件</span>
                 </div>
                 <div class="flex justify-between text-xs">
-                  <span class="text-[#B7770D] font-medium">🏗️ マテハン</span>
-                  <span class="text-gray-400">1件</span>
+                  <span class="text-[#B7770D] font-semibold">🏗️ マテハン</span>
+                  <span class="text-gray-500 font-medium">1件</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- 記事カード1：コスト・原材料 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="flex justify-between items-center px-3 py-2 bg-[#FDEDEC]">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-[#E74C3C]">
+            <div class="flex justify-between items-center px-4 py-2.5 bg-[#FDEDEC]">
               <span class="text-xs font-bold text-[#E74C3C]">📦 コスト・原材料</span>
-              <span class="text-xs text-amber-400">1 / ★★★★★</span>
+              <span class="text-xs font-medium text-amber-500">1/7 &nbsp;★★★★★</span>
             </div>
-            <div class="p-3">
+            <div class="p-4">
               <p class="text-sm font-bold text-gray-900 leading-snug">鉄鋼・金属材料が大幅値上がり、製造コスト見直しが急務</p>
-              <hr class="my-2 border-gray-100">
-              <div class="flex gap-1.5 items-start">
-                <span class="text-xs mt-0.5">📌</span>
-                <p class="text-xs text-gray-500 leading-relaxed">原材料費が即座に製造原価に影響するため要対応</p>
+              <hr class="my-2.5 border-gray-100">
+              <div class="flex gap-2 items-start">
+                <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-xs text-gray-600 leading-relaxed">原材料費が即座に製造原価に影響するため要対応</p>
               </div>
-              <p class="text-[10px] text-gray-300 text-right mt-1.5">日刊鉄鋼新聞</p>
+              <p class="text-[11px] text-gray-400 text-right mt-2">日刊鉄鋼新聞</p>
             </div>
-            <div class="px-3 pb-3">
-              <a href="#" class="block text-center text-xs font-bold text-white py-2 rounded-lg bg-[#E74C3C]">記事を開く →</a>
+            <!-- ベストプラクティス：ボタン高さ 44px以上 -->
+            <div class="px-4 pb-4">
+              <a href="#" class="flex items-center justify-center h-11 text-sm font-bold text-white rounded-xl bg-[#E74C3C] w-full">記事を開く →</a>
             </div>
           </div>
 
           <!-- 記事カード2：補助金・支援策 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="flex justify-between items-center px-3 py-2 bg-[#EAFAF1]">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-[#27AE60]">
+            <div class="flex justify-between items-center px-4 py-2.5 bg-[#EAFAF1]">
               <span class="text-xs font-bold text-[#27AE60]">💰 補助金・支援策</span>
-              <span class="text-xs text-amber-400">2 / ★★★★☆</span>
+              <span class="text-xs font-medium text-amber-500">2/7 &nbsp;★★★★☆</span>
             </div>
-            <div class="p-3">
+            <div class="p-4">
               <p class="text-sm font-bold text-gray-900 leading-snug">中小企業の設備投資補助金が拡充、新制度の詳細を確認</p>
-              <hr class="my-2 border-gray-100">
-              <div class="flex gap-1.5 items-start">
-                <span class="text-xs mt-0.5">📌</span>
-                <p class="text-xs text-gray-500 leading-relaxed">設備投資補助が拡充、申請期間を要確認</p>
+              <hr class="my-2.5 border-gray-100">
+              <div class="flex gap-2 items-start">
+                <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-xs text-gray-600 leading-relaxed">設備投資補助が拡充、申請期間を要確認</p>
               </div>
-              <p class="text-[10px] text-gray-300 text-right mt-1.5">NHK 経済</p>
+              <p class="text-[11px] text-gray-400 text-right mt-2">NHK 経済</p>
             </div>
-            <div class="px-3 pb-3">
-              <a href="#" class="block text-center text-xs font-bold text-white py-2 rounded-lg bg-[#27AE60]">記事を開く →</a>
+            <div class="px-4 pb-4">
+              <a href="#" class="flex items-center justify-center h-11 text-sm font-bold text-white rounded-xl bg-[#27AE60] w-full">記事を開く →</a>
             </div>
           </div>
 
           <!-- 記事カード3：DX・技術 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="flex justify-between items-center px-3 py-2 bg-[#F5EEF8]">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-[#8E44AD]">
+            <div class="flex justify-between items-center px-4 py-2.5 bg-[#F5EEF8]">
               <span class="text-xs font-bold text-[#8E44AD]">⚙️ DX・技術</span>
-              <span class="text-xs text-amber-400">3 / ★★★★☆</span>
+              <span class="text-xs font-medium text-amber-500">3/7 &nbsp;★★★★☆</span>
             </div>
-            <div class="p-3">
+            <div class="p-4">
               <p class="text-sm font-bold text-gray-900 leading-snug">製造業DX補助金の申請受付開始、IoT化費用を最大50%補助</p>
-              <hr class="my-2 border-gray-100">
-              <div class="flex gap-1.5 items-start">
-                <span class="text-xs mt-0.5">📌</span>
-                <p class="text-xs text-gray-500 leading-relaxed">IoT・自動化導入費用の補助、今期申請チャンス</p>
+              <hr class="my-2.5 border-gray-100">
+              <div class="flex gap-2 items-start">
+                <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-xs text-gray-600 leading-relaxed">IoT・自動化導入費用の補助、今期申請チャンス</p>
               </div>
-              <p class="text-[10px] text-gray-300 text-right mt-1.5">ITmedia ものづくり</p>
+              <p class="text-[11px] text-gray-400 text-right mt-2">ITmedia ものづくり</p>
             </div>
-            <div class="px-3 pb-3">
-              <a href="#" class="block text-center text-xs font-bold text-white py-2 rounded-lg bg-[#8E44AD]">記事を開く →</a>
+            <div class="px-4 pb-4">
+              <a href="#" class="flex items-center justify-center h-11 text-sm font-bold text-white rounded-xl bg-[#8E44AD] w-full">記事を開く →</a>
             </div>
           </div>
 
           <!-- 記事カード4：市場・経済 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="flex justify-between items-center px-3 py-2 bg-[#FEF9E7]">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-[#D35400]">
+            <div class="flex justify-between items-center px-4 py-2.5 bg-[#FEF9E7]">
               <span class="text-xs font-bold text-[#D35400]">📈 市場・経済</span>
-              <span class="text-xs text-amber-400">4 / ★★★☆☆</span>
+              <span class="text-xs font-medium text-amber-500">4/7 &nbsp;★★★☆☆</span>
             </div>
-            <div class="p-3">
+            <div class="p-4">
               <p class="text-sm font-bold text-gray-900 leading-snug">円安進行で輸入原材料コストがさらに上昇の見通し</p>
-              <hr class="my-2 border-gray-100">
-              <div class="flex gap-1.5 items-start">
-                <span class="text-xs mt-0.5">📌</span>
-                <p class="text-xs text-gray-500 leading-relaxed">調達コスト管理の見直しが急務な状況</p>
+              <hr class="my-2.5 border-gray-100">
+              <div class="flex gap-2 items-start">
+                <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-xs text-gray-600 leading-relaxed">調達コスト管理の見直しが急務な状況</p>
               </div>
-              <p class="text-[10px] text-gray-300 text-right mt-1.5">Yahoo!ニュース 経済</p>
+              <p class="text-[11px] text-gray-400 text-right mt-2">Yahoo!ニュース 経済</p>
             </div>
-            <div class="px-3 pb-3">
-              <a href="#" class="block text-center text-xs font-bold text-white py-2 rounded-lg bg-[#D35400]">記事を開く →</a>
+            <div class="px-4 pb-4">
+              <a href="#" class="flex items-center justify-center h-11 text-sm font-bold text-white rounded-xl bg-[#D35400] w-full">記事を開く →</a>
             </div>
           </div>
 
           <!-- 記事カード5：法規制・政策 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="flex justify-between items-center px-3 py-2 bg-[#F2F3F4]">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-[#7F8C8D]">
+            <div class="flex justify-between items-center px-4 py-2.5 bg-[#F2F3F4]">
               <span class="text-xs font-bold text-[#7F8C8D]">📋 法規制・政策</span>
-              <span class="text-xs text-amber-400">5 / ★★★☆☆</span>
+              <span class="text-xs font-medium text-amber-500">5/7 &nbsp;★★★☆☆</span>
             </div>
-            <div class="p-3">
+            <div class="p-4">
               <p class="text-sm font-bold text-gray-900 leading-snug">カーボンニュートラル規制が中小製造業にも適用拡大へ</p>
-              <hr class="my-2 border-gray-100">
-              <div class="flex gap-1.5 items-start">
-                <span class="text-xs mt-0.5">📌</span>
-                <p class="text-xs text-gray-500 leading-relaxed">環境規制対応の準備を早めに進める必要あり</p>
+              <hr class="my-2.5 border-gray-100">
+              <div class="flex gap-2 items-start">
+                <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-xs text-gray-600 leading-relaxed">環境規制対応の準備を早めに進める必要あり</p>
               </div>
-              <p class="text-[10px] text-gray-300 text-right mt-1.5">NHK 経済</p>
+              <p class="text-[11px] text-gray-400 text-right mt-2">NHK 経済</p>
             </div>
-            <div class="px-3 pb-3">
-              <a href="#" class="block text-center text-xs font-bold text-white py-2 rounded-lg bg-[#7F8C8D]">記事を開く →</a>
+            <div class="px-4 pb-4">
+              <a href="#" class="flex items-center justify-center h-11 text-sm font-bold text-white rounded-xl bg-[#7F8C8D] w-full">記事を開く →</a>
             </div>
           </div>
 
           <!-- 記事カード6：水耕栽培・植物工場 -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="flex justify-between items-center px-3 py-2 bg-[#E8F8F5]">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-[#16A085]">
+            <div class="flex justify-between items-center px-4 py-2.5 bg-[#E8F8F5]">
               <span class="text-xs font-bold text-[#16A085]">🌱 水耕栽培・植物工場</span>
-              <span class="text-xs text-amber-400">6 / ★★★☆☆</span>
+              <span class="text-xs font-medium text-amber-500">6/7 &nbsp;★★★☆☆</span>
             </div>
-            <div class="p-3">
+            <div class="p-4">
               <p class="text-sm font-bold text-gray-900 leading-snug">植物工場向け LED 照明コストが3割低減、採算ラインに近づく</p>
-              <hr class="my-2 border-gray-100">
-              <div class="flex gap-1.5 items-start">
-                <span class="text-xs mt-0.5">📌</span>
-                <p class="text-xs text-gray-500 leading-relaxed">植物工場参入・拡張を検討するタイミングとして参考に</p>
+              <hr class="my-2.5 border-gray-100">
+              <div class="flex gap-2 items-start">
+                <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-xs text-gray-600 leading-relaxed">植物工場参入・拡張を検討するタイミングとして参考に</p>
               </div>
-              <p class="text-[10px] text-gray-300 text-right mt-1.5">ITmedia ものづくり</p>
+              <p class="text-[11px] text-gray-400 text-right mt-2">ITmedia ものづくり</p>
             </div>
-            <div class="px-3 pb-3">
-              <a href="#" class="block text-center text-xs font-bold text-white py-2 rounded-lg bg-[#16A085]">記事を開く →</a>
+            <div class="px-4 pb-4">
+              <a href="#" class="flex items-center justify-center h-11 text-sm font-bold text-white rounded-xl bg-[#16A085] w-full">記事を開く →</a>
             </div>
           </div>
 
           <!-- 記事カード7：マテハン -->
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div class="flex justify-between items-center px-3 py-2 bg-[#FEF5E7]">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-[#B7770D]">
+            <div class="flex justify-between items-center px-4 py-2.5 bg-[#FEF5E7]">
               <span class="text-xs font-bold text-[#B7770D]">🏗️ マテハン</span>
-              <span class="text-xs text-amber-400">7 / ★★★☆☆</span>
+              <span class="text-xs font-medium text-amber-500">7/7 &nbsp;★★★☆☆</span>
             </div>
-            <div class="p-3">
+            <div class="p-4">
               <p class="text-sm font-bold text-gray-900 leading-snug">AGV・自動搬送ロボット導入補助金、中小製造業が対象に追加</p>
-              <hr class="my-2 border-gray-100">
-              <div class="flex gap-1.5 items-start">
-                <span class="text-xs mt-0.5">📌</span>
-                <p class="text-xs text-gray-500 leading-relaxed">搬送自動化の設備投資に補助が使える可能性、要確認</p>
+              <hr class="my-2.5 border-gray-100">
+              <div class="flex gap-2 items-start">
+                <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+                <p class="text-xs text-gray-600 leading-relaxed">搬送自動化の設備投資に補助が使える可能性、要確認</p>
               </div>
-              <p class="text-[10px] text-gray-300 text-right mt-1.5">NHK 経済</p>
+              <p class="text-[11px] text-gray-400 text-right mt-2">NHK 経済</p>
             </div>
-            <div class="px-3 pb-3">
-              <a href="#" class="block text-center text-xs font-bold text-white py-2 rounded-lg bg-[#B7770D]">記事を開く →</a>
+            <div class="px-4 pb-4">
+              <a href="#" class="flex items-center justify-center h-11 text-sm font-bold text-white rounded-xl bg-[#B7770D] w-full">記事を開く →</a>
             </div>
           </div>
 
           <!-- フッター -->
-          <div class="text-center text-[10px] text-white opacity-60 pb-1">
+          <div class="text-center text-[11px] text-white opacity-60 pb-1">
             Powered by Nikkei × Gemini
           </div>
 

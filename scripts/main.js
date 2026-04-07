@@ -30,6 +30,7 @@ async function main() {
     console.log('=== 完了 ===');
   } catch (err) {
     console.error('[ERROR]', err.message);
+    console.error(err.stack);
     process.exit(1);
   }
 }
