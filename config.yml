@@ -1,0 +1,59 @@
+# ========================================
+# Nikkei LINE Tool 設定ファイル
+# ========================================
+
+# ユーザープロフィール（AIフィルタリングに使用）
+user_profile:
+  role: "中小企業の経営者"
+  industry: "製造業"
+  interests:
+    - "製造業・ものづくりに関するトレンド"
+    - "中小企業の経営課題・補助金・支援策"
+    - "原材料・エネルギーコストの動向"
+    - "サプライチェーン・調達"
+    - "DX・製造業のデジタル化"
+    - "人手不足・採用・労働市場"
+    - "為替・金利など中小企業の財務に影響する動向"
+    - "競合・業界再編の動き"
+
+# AIフィルタリング設定
+filter:
+  # 1回の通知で送る記事の最大数
+  max_articles: 5
+  # この点数以上の記事を送る（10点満点）
+  min_score: 6
+  # AIへの補足指示（任意）
+  additional_instructions: |
+    以下の観点を重視してください:
+    - 明日の経営判断に直接影響しうる情報を優先
+    - 大企業向けではなく中小企業にも関係する内容を優先
+    - 製造業特有のコスト・規制・技術動向を重視
+
+# ニュース取得設定
+news:
+  # 取得するRSSフィード（日経電子版）
+  rss_feeds:
+    - name: "日経 総合"
+      url: "https://www.nikkei.com/rss/index.html"
+    - name: "日経 経済"
+      url: "https://www.nikkei.com/rss/economy.html"
+    - name: "日経 産業"
+      url: "https://www.nikkei.com/rss/industry.html"
+    - name: "日経 テクノロジー"
+      url: "https://www.nikkei.com/rss/technology.html"
+    - name: "日経 マーケット"
+      url: "https://www.nikkei.com/rss/market.html"
+    - name: "日経 中小企業"
+      url: "https://www.nikkei.com/rss/sme.html"
+  # 何時間以内の記事を対象にするか
+  hours_back: 24
+
+# LINE設定
+line:
+  # 通知する時刻（GitHub Actionsのcron用）
+  # 平日の朝7:30 JST に通知
+  schedule: "30 22 * * 0-4"  # UTC換算（JST -9h）
+  # メッセージのヘッダー
+  header: "📰 今日の注目ニュース"
+  # フッター
+  footer: "Powered by Nikkei × Claude"

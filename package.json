@@ -1,0 +1,21 @@
+{
+  "name": "nikkei-line-tool",
+  "version": "1.0.0",
+  "description": "日経電子版のニュースをAIで選別してLINEに通知するツール",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/main.js",
+    "fetch": "node scripts/fetch-news.js",
+    "filter": "node scripts/filter-news.js",
+    "post": "node scripts/post-line.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "axios": "^1.7.9",
+    "js-yaml": "^4.1.0",
+    "rss-parser": "^3.13.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
