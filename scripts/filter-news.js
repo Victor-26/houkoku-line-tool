@@ -22,6 +22,7 @@ const client = new OpenAI({
 const VALID_CATEGORIES = new Set([
   'コスト・原材料', '補助金・支援策', '人材・採用', 'DX・技術',
   '市場・経済', '法規制・政策', '業界動向', '水耕栽培・植物工場', 'マテハン',
+  '世界の政治経済', '最新建築情報',
 ]);
 
 function loadConfig() {
