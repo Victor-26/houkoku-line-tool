@@ -21,15 +21,15 @@ user_profile:
 
 # AIフィルタリング設定
 filter:
-  # 1回の通知で送る記事の最大数
-  max_articles: 8
+  # 1回の通知で送る記事の最大数（件数制限なし・スコア条件を満たす記事を全て送る）
+  max_articles: 50
   # この点数以上の記事を送る（10点満点）
-  min_score: 6
+  min_score: 5
   # 2パスフィルタリング（品質優先）
   # 第1パスで候補を絞ってから、第2パスで最終選定する
   two_pass:
     enabled: true        # true にすると2段階評価（精度向上・API2回分）
-    first_pass_limit: 20 # 第1パスで何件に絞るか
+    first_pass_limit: 40 # 第1パスで何件に絞るか
 
   # 使用するAIモデル（GitHub Models 経由・無料）
   # 高品質: gpt-4o（精度最高）
@@ -75,6 +75,12 @@ news:
     # Google News（建築・建設キーワード検索）
     - name: "Google News 建築建設"
       url: "https://news.google.com/rss/search?q=%E5%BB%BA%E7%AF%89+%E5%BB%BA%E8%A8%AD+%E5%BB%BA%E8%A8%AD%E6%A5%AD%E7%95%8C&hl=ja&gl=JP&ceid=JP:ja"
+    # Google News（植物工場・アグリテック）
+    - name: "Google News 植物工場"
+      url: "https://news.google.com/rss/search?q=%E6%A4%8D%E7%89%A9%E5%B7%A5%E5%A0%B4+%E6%B0%B4%E8%80%95%E6%A0%BD%E5%9F%B9+%E3%82%A2%E3%82%B0%E3%83%AA%E3%83%86%E3%83%83%E3%82%AF&hl=ja&gl=JP&ceid=JP:ja"
+    # Google News（製造業・ものづくり全般）
+    - name: "Google News 製造業"
+      url: "https://news.google.com/rss/search?q=%E8%A3%BD%E9%80%A0%E6%A5%AD+%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A+%E5%B7%A5%E5%A0%B4&hl=ja&gl=JP&ceid=JP:ja"
 
   # ── スクレイピング（RSS 非対応サイト）──────────────
   scrape_sites:

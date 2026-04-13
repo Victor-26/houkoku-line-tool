@@ -180,7 +180,6 @@ function mergeWithArticles(scored, articles, maxArticles) {
       return true;
     })
     .sort((a, b) => Number(b.score) - Number(a.score))
-    .slice(0, maxArticles)
     .map((s) => ({
       ...articles[Number(s.index)],
       score: Number(s.score),
