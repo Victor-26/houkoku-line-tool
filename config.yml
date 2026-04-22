@@ -18,6 +18,7 @@ user_profile:
     - "水耕栽培・植物工場・農業テクノロジーの動向"
     - "マテハン（マテリアルハンドリング）・物流機器・自動搬送の動向"
     - "最新建築・建設情報（建設需要・資材・工法・法規制）"
+    - "物流関連（サプライチェーン・3PL・輸送・倉庫・マテハン・物流コスト）"
 
 # AIフィルタリング設定
 filter:
@@ -81,6 +82,12 @@ news:
     # Google News（製造業・ものづくり全般）
     - name: "Google News 製造業"
       url: "https://news.google.com/rss/search?q=%E8%A3%BD%E9%80%A0%E6%A5%AD+%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A+%E5%B7%A5%E5%A0%B4&hl=ja&gl=JP&ceid=JP:ja"
+    # LOGISTICS TODAY（国内最大の物流ニュースサイト）
+    - name: "LOGISTICS TODAY"
+      url: "https://www.logi-today.com/feed"
+    # LNEWS（物流・ロジスティクス・SCM専門）
+    - name: "LNEWS"
+      url: "https://www.lnews.jp/feed"
 
   # ── スクレイピング（RSS 非対応サイト）──────────────
   scrape_sites:
