@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📰 今日の注目ニュース</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; }
+    .card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- ヘッダー -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div>
+        <h1 class="text-base font-bold text-gray-900">📰 今日の注目ニュース</h1>
+        <p id="meta" class="text-xs text-gray-400 mt-0.5">読み込み中...</p>
+      </div>
+      <div id="badge" class="hidden bg-gray-900 text-white text-xs font-bold px-3 py-1.5 rounded-full"></div>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="max-w-2xl mx-auto px-4 py-5 space-y-3" id="articles">
+
+    <!-- ローディング -->
+    <div id="loading" class="text-center py-20 text-gray-400">
+      <div class="text-4xl mb-3">⏳</div>
+      <p class="text-sm">ニュースを読み込んでいます...</p>
+    </div>
+
+    <!-- 記事なし -->
+    <div id="empty" class="hidden text-center py-20 text-gray-400">
+      <div class="text-4xl mb-3">📭</div>
+      <p class="text-sm">本日の該当記事はまだありません</p>
+      <p class="text-xs mt-1">毎朝6時に自動更新されます</p>
+    </div>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="text-center text-xs text-gray-400 py-8">
+    Powered by GitHub Models × LINE &nbsp;|&nbsp; 毎朝6時 自動更新
+  </footer>
+
+<script>
+const CATEGORY_STYLES = {
+  'コスト・原材料':     { color: '#E74C3C', bg: '#FDEDEC', icon: '📦' },
+  '補助金・支援策':     { color: '#27AE60', bg: '#EAFAF1', icon: '💰' },
+  '人材・採用':         { color: '#2980B9', bg: '#EBF5FB', icon: '👥' },
+  'DX・技術':           { color: '#8E44AD', bg: '#F5EEF8', icon: '⚙️' },
+  '市場・経済':         { color: '#D35400', bg: '#FEF9E7', icon: '📈' },
+  '法規制・政策':       { color: '#7F8C8D', bg: '#F2F3F4', icon: '📋' },
+  '業界動向':           { color: '#1A5276', bg: '#EBF5FB', icon: '🏭' },
+  '水耕栽培・植物工場': { color: '#16A085', bg: '#E8F8F5', icon: '🌱' },
+  'マテハン':           { color: '#B7770D', bg: '#FEF5E7', icon: '🏗️' },
+  '最新建築情報':       { color: '#6C3483', bg: '#F5EEF8', icon: '🏢' },
+  '物流関連':           { color: '#1F618D', bg: '#EAF2FF', icon: '🚚' },
+};
+
+function scoreToStars(score) {
+  const stars = Math.round(score / 2);
+  return '★'.repeat(stars) + '☆'.repeat(5 - stars);
+}
+
+function buildCard(article, index, total) {
+  const style = CATEGORY_STYLES[article.category] || CATEGORY_STYLES['業界動向'];
+  const stars = scoreToStars(article.score);
+
+  return `
+    <a href="${article.url}" target="_blank" rel="noopener noreferrer"
+       class="card block bg-white rounded-2xl overflow-hidden shadow-md border-l-4 no-underline"
+       style="border-color: ${style.color}">
+      <div class="flex justify-between items-center px-4 py-2.5"
+           style="background-color: ${style.bg}">
+        <span class="text-xs font-bold" style="color: ${style.color}">
+          ${style.icon} ${article.category}
+        </span>
+        <span class="text-xs font-medium text-amber-500">
+          ${index + 1}/${total} &nbsp;${stars}
+        </span>
+      </div>
+      <div class="p-4">
+        <p class="text-sm font-bold text-gray-900 leading-snug">${article.one_line_summary}</p>
+        <hr class="my-2.5 border-gray-100">
+        <div class="flex gap-2 items-start">
+          <span class="text-xs mt-0.5 flex-shrink-0">📌</span>
+          <p class="text-xs text-gray-600 leading-relaxed">${article.reason}</p>
+        </div>
+        <div class="flex items-center justify-between mt-3">
+          <p class="text-xs text-gray-400">${article.source}</p>
+          <span class="text-xs font-bold px-3 py-1 rounded-lg text-white"
+                style="background-color: ${style.color}">
+            記事を開く →
+          </span>
+        </div>
+      </div>
+    </a>`;
+}
+
+async function load() {
+  try {
+    const res = await fetch('./latest.json?t=' + Date.now());
+    const data = await res.json();
+
+    document.getElementById('loading').remove();
+
+    if (!data.articles || data.articles.length === 0) {
+      document.getElementById('empty').classList.remove('hidden');
+      document.getElementById('meta').textContent = '本日の記事はまだありません';
+      return;
+    }
+
+    const articles = data.articles;
+    const total = articles.length;
+
+    // ヘッダー更新
+    const date = data.updatedAt
+      ? new Date(data.updatedAt).toLocaleDateString('ja-JP', {
+          year: 'numeric', month: 'long', day: 'numeric', weekday: 'short',
+          timeZone: 'Asia/Tokyo'
+        })
+      : '—';
+    document.getElementById('meta').textContent = date + ' 更新';
+    const badge = document.getElementById('badge');
+    badge.textContent = '厳選 ' + total + ' 記事';
+    badge.classList.remove('hidden');
+
+    // カテゴリ集計バナー
+    const catCount = {};
+    articles.forEach(a => { catCount[a.category] = (catCount[a.category] || 0) + 1; });
+    const catLines = Object.entries(catCount).map(([cat, cnt]) => {
+      const s = CATEGORY_STYLES[cat] || CATEGORY_STYLES['業界動向'];
+      return `<div class="flex justify-between text-xs py-0.5">
+        <span class="font-semibold" style="color:${s.color}">${s.icon} ${cat}</span>
+        <span class="text-gray-500">${cnt}件</span>
+      </div>`;
+    }).join('');
+
+    const summary = `
+      <div class="bg-white rounded-2xl shadow-md p-4 mb-1">
+        <p class="text-sm font-bold text-gray-700 mb-2">本日の厳選 ${total} 記事</p>
+        <div class="space-y-0.5">${catLines}</div>
+      </div>`;
+
+    const container = document.getElementById('articles');
+    container.insertAdjacentHTML('beforeend', summary);
+    articles.forEach((a, i) => {
+      container.insertAdjacentHTML('beforeend', buildCard(a, i, total));
+    });
+
+  } catch (e) {
+    document.getElementById('loading').innerHTML =
+      '<div class="text-4xl mb-3">⚠️</div><p class="text-sm text-red-400">データの読み込みに失敗しました</p>';
+  }
+}
+
+load();
+</script>
+</body>
+</html>

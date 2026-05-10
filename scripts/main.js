@@ -1,10 +1,25 @@
 /**
- * メイン処理: 取得 → フィルタ → LINE送信
+ * メイン処理: 取得 → フィルタ → LINE送信 → Web用JSON保存
  */
 
 import { fetchNews } from './fetch-news.js';
 import { filterNews } from './filter-news.js';
 import { postToLine } from './post-line.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const LATEST_JSON_PATH = path.join(__dirname, '..', 'docs', 'latest.json');
+
+function saveLatestJson(articles) {
+  const data = {
+    updatedAt: new Date().toISOString(),
+    articles,
+  };
+  fs.writeFileSync(LATEST_JSON_PATH, JSON.stringify(data, null, 2), 'utf8');
+  console.log(`[main] docs/latest.json を保存しました (${articles.length}件)`);
+}
 
 async function main() {
   console.log('=== Nikkei LINE Tool 開始 ===');
@@ -18,6 +33,7 @@ async function main() {
     if (articles.length === 0) {
       console.log('取得できた記事が0件でした。LINEへは「本日の該当記事なし」を送信します。');
       await postToLine([]);
+      saveLatestJson([]);
       return;
     }
 
@@ -26,6 +42,9 @@ async function main() {
 
     // Step 3: LINE送信
     await postToLine(filtered);
+
+    // Step 4: Web用JSONに保存
+    saveLatestJson(filtered);
 
     console.log('=== 完了 ===');
   } catch (err) {
