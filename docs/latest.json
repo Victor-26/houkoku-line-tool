@@ -1,38 +1,27 @@
 {
-  "updatedAt": "2026-05-10T21:48:10.393Z",
+  "updatedAt": "2026-05-11T22:07:48.115Z",
   "articles": [
     {
-      "source": "Yahoo!ニュース 経済",
-      "title": "なぜ今か？ベッセント米財務長官来日に隠された時限爆弾…アメリカ人が円安に懸念すること、「緊急事態」と言われる理由(Wedge（ウェッジ）)",
-      "summary": "円安が続く中で、連休中に政府日銀は少なくとも2回の大規模介入を行い、それ以外にも数回の円買いの介入を行ったようだ。介入の回数が多くなると、円は変動相場から逸脱されたとみなされて不利な扱いを受けるが、",
-      "url": "https://news.yahoo.co.jp/articles/8ff8386583fb7c465e8335aec0aff74c6f3550af?source=rss",
-      "publishedAt": "2026-05-10T20:00:35.000Z",
+      "source": "Google News 建築建設",
+      "title": "【建設業の原価管理に関する実態調査】資材価格高騰で約7割が利益率低下、価格転嫁できた企業は1割未満 - PR TIMES",
+      "summary": "【建設業の原価管理に関する実態調査】資材価格高騰で約7割が利益率低下、価格転嫁できた企業は1割未満  PR TIMES",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9sUXN3LTZNcmRBNmdsTGlSYWREalQ0UVBBS0JUT2VsMF9jZ0pUV25CNWFzT29PemFrSXcwcEdScllRSHRBNVc1OW1UTkMwbU93UGJlLVpKTExGNEdGaS1wNlN1X194cTd3Z3c?oc=5",
+      "publishedAt": "2026-05-11T01:00:02.000Z",
       "score": 8,
-      "category": "市場・経済",
-      "reason": "円安の影響は中小企業の財務に直結するため、注意が必要",
-      "one_line_summary": "円安が続く中、政府の介入が増加し、影響が懸念される"
+      "category": "最新建築情報",
+      "reason": "資材価格高騰は建設業界全体に影響を及ぼし、製造業にも波及するため重要",
+      "one_line_summary": "建設業界で資材価格が高騰し、利益率が低下している実態が明らかに"
     },
     {
-      "source": "Yahoo!ニュース 経済",
-      "title": "為替相場　　11日（日本時間　6時）(共同通信)",
-      "summary": "6時現在　　　　　　　　　　\n\n　1ドル＝　　　　　　　　　　\n\n　　　156円52銭～　　　　\n\n　　　　　　156円67銭　　\n\n　　前日比　　＋0円31銭　　\n\n　1ユーロ＝",
-      "url": "https://news.yahoo.co.jp/articles/b07d0887a30034e4c19e41f7e124da578f8a4c56?source=rss",
-      "publishedAt": "2026-05-10T21:00:52.000Z",
+      "source": "LNEWS",
+      "title": "国交省／自動運転トラック導入などの補助公募を開始、1件最大1億円",
+      "summary": "国土交通省は5月11日、自動運転トラックの導入や対応する物流拠点の整備、システム構築など、高速道路での自動運転トラック活用による貨物運送の早期社会実装に向けた取り組みを支援する「自動運転トラック実装支援事業」の公募を開始 […]\n国交省／自動運転トラック導入などの補助公募を開始、1件最大1億円 first appeared on 物流（ロジスティクス）ニュース ＬＮＥＷＳ.",
+      "url": "https://www.lnews.jp/2026/05/s0511105.html",
+      "publishedAt": "2026-05-11T07:45:32.000Z",
       "score": 7,
-      "category": "市場・経済",
-      "reason": "為替相場の動向は製造業のコストや利益に影響を与える",
-      "one_line_summary": "現在の為替相場は1ドル156円台、動向に注意が必要"
-    },
-    {
-      "source": "Yahoo!ニュース 経済",
-      "title": "「ライバルの車を、徹底的にバラせ」──トヨタが英国で始動した循環型ファクトリー、エネルギー95％削減が突きつける“売り切り型”からの転換(Merkmal)",
-      "summary": "トヨタが掲げる「循環型ファクトリー」の構想が、実務の現場で動いている。舞台は英国のバーナストン工場。ここに設置された「トヨタ・サーキュラー・ファクトリー（TCF）」では、役目を終えた廃車からアルミを",
-      "url": "https://news.yahoo.co.jp/articles/28f8a519b9e77967af224f9791d07fbcd503f7f8?source=rss",
-      "publishedAt": "2026-05-10T21:20:00.000Z",
-      "score": 6,
-      "category": "DX・技術",
-      "reason": "トヨタの循環型ファクトリーは製造業の新たな方向性を示唆している",
-      "one_line_summary": "トヨタが英国で循環型ファクトリーを開始し、エネルギー削減を目指す"
+      "category": "補助金・支援策",
+      "reason": "自動運転トラック導入の補助金は物流効率化に直結し、中小企業にも関係がある",
+      "one_line_summary": "国交省が自動運転トラック導入のための補助公募を開始"
     }
   ]
 }
