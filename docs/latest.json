@@ -1,38 +1,49 @@
 {
-  "updatedAt": "2026-06-21T22:14:45.007Z",
+  "updatedAt": "2026-06-22T22:47:26.058Z",
   "articles": [
     {
-      "source": "日刊鉄鋼新聞",
-      "title": "輸入薄板／ＣＳＣ、１万～１．２万円（６～８月積み）値上げ／コスト高、円安基調で採算改善急ぐ／ポスコも２期連続大幅値上げへ",
-      "summary": "",
-      "url": "https://www.japanmetaldaily.com/articles/-/262351",
-      "publishedAt": "2026-06-22T05:00:00.000Z",
+      "source": "Google News 建築建設",
+      "title": "建築資材費、さらに上昇か 日本建設業連合会会長が懸念（共同通信） - Yahoo!ニュース",
+      "summary": "建築資材費、さらに上昇か 日本建設業連合会会長が懸念（共同通信）  Yahoo!ニュース",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5VMnloNC1rN3JITHpyMXVrMjNfckt6NkJVNDk5WU5jUkRwVWEtMF94cVg5VE1ZeHpiN1VjUDl2YXVETWtuYklPc3p5OUc4cExobmJOS3o1WWpUUDRmX0hkdHVKN2VXWXg0OHN0ZmlqVEtwUkVQazEtX3VDaG1KTWM?oc=5",
+      "publishedAt": "2026-06-22T07:07:24.000Z",
       "score": 8,
-      "category": "コスト・原材料",
-      "reason": "原材料の価格上昇は製造業に直接影響し、経営判断に重要な情報。",
-      "one_line_summary": "輸入薄板の値上げが続き、コスト圧迫が懸念される。"
+      "category": "最新建築情報",
+      "reason": "建築資材費の上昇は製造業のコストに直結するため、経営判断に影響を与える情報。",
+      "one_line_summary": "建築資材費がさらに上昇する懸念が示され、製造業にも影響が及ぶ可能性"
     },
     {
-      "source": "Yahoo!ニュース 経済",
-      "title": "8割企業が人件費増のいま「利益が出たら給料上げる」では遅い理由 （都築博志 経営者）(シェアーズカフェ・オンライン)",
-      "summary": "日本経済新聞社がまとめた2026年の賃金動向調査で、人件費の総額が前年より増える見込みと答えた企業は78.6％にのぼった。定期昇給とベースアップを合わせた平均賃上げ率は5.4％だった。\n\nこれは「景気",
-      "url": "https://news.yahoo.co.jp/articles/bb293a8105175bec07f9bc696d3a0a25676d13f0?source=rss",
-      "publishedAt": "2026-06-21T21:31:15.000Z",
+      "source": "LNEWS",
+      "title": "横浜ゴム／国内市販用タイヤ9月から平均5％値上げ、原材料や物流費高騰で",
+      "summary": "横浜ゴムは9月1日、国内市販用タイヤのメーカー出荷価格を改定する。商品やサイズにより異なるが、平均5％の値上げとなる。 近年、タイヤ原材料価格の高騰に加え、物流費や人件費、エネルギー費などのコストが高水準で推移。企業努力 […]\n横浜ゴム／国内市販用タイヤ9月から平均5％値上げ、原材料や物流費高騰で first appeared on 物流（ロジスティクス）ニュース ＬＮＥＷＳ.",
+      "url": "https://www.lnews.jp/2026/06/s0622604.html",
+      "publishedAt": "2026-06-22T01:00:50.000Z",
       "score": 7,
-      "category": "人材・採用",
-      "reason": "人件費の増加は中小企業の経営に直接影響を与えるため、注意が必要。",
-      "one_line_summary": "多くの企業が人件費を増加させる見込みで、早期対応が求められる。"
+      "category": "コスト・原材料",
+      "reason": "タイヤの価格上昇は原材料コストの動向を示し、製造業に影響を与えるため重要。",
+      "one_line_summary": "横浜ゴムがタイヤの出荷価格を平均5％値上げ、原材料や物流費高騰が影響"
     },
     {
-      "source": "Yahoo!ニュース 経済",
-      "title": "【米ドル円】6月第4週の為替相場にインパクトを与える「重要な経済指標」【解説：東京海上アセットマネジメント】(THE GOLD ONLINE（ゴールドオンライン）)",
-      "summary": "今週の米ドル円相場の動向に影響を与えそうな「注目の経済指標」について、東京海上アセットマネジメントが解説します。",
-      "url": "https://news.yahoo.co.jp/articles/2905aaa6b9523dc288d6e302c5a133687b5e34ca?source=rss",
-      "publishedAt": "2026-06-21T22:00:37.000Z",
+      "source": "NHK 経済",
+      "title": "片山財務相 米ベッセント財務長官と会談 為替動向を意見交換か",
+      "summary": "片山財務大臣が22日夜、アメリカのベッセント財務長官とオンラインで会談を行ったことが分かりました。外国為替市場で39年半ぶりとなる円安ドル高水準が迫る中、為替の動向について意見を交わした可能性がありま…",
+      "url": "https://news.web.nhk/newsweb/na/na-k10015156761000",
+      "publishedAt": "2026-06-22T16:14:29.000Z",
       "score": 6,
       "category": "市場・経済",
-      "reason": "為替相場の動向は中小企業の財務に影響を与えるため、注視が必要。",
-      "one_line_summary": "米ドル円相場に影響を与える重要な経済指標が発表される。"
+      "reason": "為替動向は中小企業の財務に影響を与えるため、経営判断に重要な情報。",
+      "one_line_summary": "米財務長官との会談で為替動向について意見交換が行われた"
+    },
+    {
+      "source": "日刊鉄鋼新聞",
+      "title": "薄板市況、一段高へ機運鮮明／高炉・電炉値上げでコスト急上昇／流通、転嫁ピッチ加速へ／ＡＤ調査品種拡大も国内相場を下支え",
+      "summary": "",
+      "url": "https://www.japanmetaldaily.com/articles/-/262421",
+      "publishedAt": "2026-06-23T05:00:00.000Z",
+      "score": 6,
+      "category": "コスト・原材料",
+      "reason": "薄板市況の上昇は製造業のコストに影響を与えるため、経営判断に関わる情報。",
+      "one_line_summary": "薄板市況が一段高へ進む見通しで、コスト上昇が懸念される"
     }
   ]
 }
