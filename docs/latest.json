@@ -1,49 +1,38 @@
 {
-  "updatedAt": "2026-06-28T22:01:59.675Z",
+  "updatedAt": "2026-06-29T22:07:43.546Z",
   "articles": [
     {
-      "source": "Yahoo!ニュース 経済",
-      "title": "ベンカン機工、ステンレス管継手15％以上値上げ。8月出荷分から・大径品も対象(鉄鋼新聞)",
-      "summary": "溶接継手最大手のベンカン機工（本社・群馬県太田市、社長・一丁田学氏）は、ステンレス鋼製溶接式管継手の販売価格を現行比15％以上引き上げる。8月1日以降の出荷分が対象。価格表以外の大径品などについても",
-      "url": "https://news.yahoo.co.jp/articles/e81cb1083e62f1271f09b059fd33b9962aff66fc?source=rss",
-      "publishedAt": "2026-06-28T21:03:34.000Z",
-      "score": 8,
-      "category": "コスト・原材料",
-      "reason": "ステンレス管継手の値上げは製造業のコストに直結するため重要。",
-      "one_line_summary": "ステンレス管継手が15％以上値上げ、コスト圧迫が懸念される。"
+      "source": "LNEWS",
+      "title": "国交省／新技術活用によるサプライチェーン全体輸送効率化などの実証に補助金",
+      "summary": "国土交通省は6月29日、サプライチェーン上の複数の事業者（発荷主・着荷主・輸送事業者の各1者以上を含む3者以上）が連携して取り組む高度なデジタル技術を活用したサプライチェーン全体の効率化や、輸送計画と連携したEVトラック […]\n国交省／新技術活用によるサプライチェーン全体輸送効率化などの実証に補助金 first appeared on 物流（ロジスティクス）ニュース ＬＮＥＷＳ.",
+      "url": "https://www.lnews.jp/2026/06/s0629104.html",
+      "publishedAt": "2026-06-29T07:35:52.000Z",
+      "score": 9,
+      "category": "補助金・支援策",
+      "reason": "サプライチェーンの効率化に向けた補助金は中小企業にとって重要な支援策",
+      "one_line_summary": "国交省がサプライチェーン効率化のための補助金を発表"
     },
     {
-      "source": "日刊鉄鋼新聞",
-      "title": "日本製鉄／厚板、５０００円追加値上げ／ヒモ付き・店売り、７月引受分から／４月分から累計１．５万円／諸コスト上昇で",
-      "summary": "",
-      "url": "https://www.japanmetaldaily.com/articles/-/262800",
-      "publishedAt": "2026-06-29T05:00:00.000Z",
+      "source": "NHK 経済",
+      "title": "円相場 一時1ドル＝161円90銭台後半 約39年半ぶりの円安水準に",
+      "summary": "29日のニューヨーク外国為替市場では円を売ってドルを買う動きが進み、円相場は一時、1ドル＝161円90銭台まで値下がりし、1986年以来、およそ39年半ぶりの円安ドル高水準をつけました。アメリカのFR…",
+      "url": "https://news.web.nhk/newsweb/na/na-k10015164231000",
+      "publishedAt": "2026-06-29T20:29:52.000Z",
       "score": 8,
-      "category": "コスト・原材料",
-      "reason": "厚板の追加値上げは製造業のコスト管理に影響を与える。",
-      "one_line_summary": "日本製鉄が厚板を5000円追加値上げ、累計1.5万円に。"
+      "category": "市場・経済",
+      "reason": "円安は輸出入に直接影響し、経営判断に重要な要素",
+      "one_line_summary": "円相場が39年半ぶりの円安水準に達し、影響が懸念される"
     },
     {
-      "source": "Yahoo!ニュース 経済",
-      "title": "「年収1000万円でも足りない？」 トヨタ城下町で始まった大異変、最高水準の給与でも人材を引き寄せられない理由とは(Merkmal)",
-      "summary": "「高い給料を払えば人は集まる」。かつて製造業において広く共有されていたこの前提が、転換を迎えている。トヨタ自動車の平均年収は1000万円を超え、国内自動車メーカーとして最高水準に達した。\n\n　安定した",
-      "url": "https://news.yahoo.co.jp/articles/975f7100055bf9a62eb87244278e26b12c5108bd?source=rss",
-      "publishedAt": "2026-06-28T21:21:00.000Z",
+      "source": "Google News 植物工場",
+      "title": "マクニカ、リラタ社とMOUを締結し、CO2排出量を最大65分の1に削減する栽培培地の社会実装へ - ニコニコニュース",
+      "summary": "マクニカ、リラタ社とMOUを締結し、CO2排出量を最大65分の1に削減する栽培培地の社会実装へ  ニコニコニュース",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE80Yjdra3NHb3dOdDhLU2VZZzl2X3h0ZTNhcnZXMFBUYkpKMnZTNk9LY0d1akFaTmVPeTJzOTdRUUxlVVVaYVVaVGpsWFdWeW1HalNfR29CVU9VRjQ2NEpxTzlSb3oyLWJHd2M4enJXUmw4Q3V6Z2pWRFBR?oc=5",
+      "publishedAt": "2026-06-29T01:03:29.000Z",
       "score": 7,
-      "category": "人材・採用",
-      "reason": "人材確保の難しさは中小企業にとっても重要な課題。",
-      "one_line_summary": "トヨタ城下町で高年収でも人材が集まらない理由が浮き彫りに。"
-    },
-    {
-      "source": "Yahoo!ニュース 経済",
-      "title": "リコーが多能工ヒューマノイドを披露、工場ではPoCから導入に向けた実証段階へ(MONOist)",
-      "summary": "リコーは、「AWS Summit Japan 2026」（2026年6月25～26日、幕張メッセ）において、フィジカルAI（人工知能）搭載の多能工ヒューマノイドのデモンストレーションを披露した。既に",
-      "url": "https://news.yahoo.co.jp/articles/97f26e07776fa4eec856ffc77ab3c0e49761220c?source=rss",
-      "publishedAt": "2026-06-28T21:15:12.000Z",
-      "score": 6,
-      "category": "DX・技術",
-      "reason": "多能工ヒューマノイドの導入は製造業のデジタル化に寄与する可能性がある。",
-      "one_line_summary": "リコーが多能工ヒューマノイドを披露、工場での実証段階へ。"
+      "category": "水耕栽培・植物工場",
+      "reason": "CO2削減技術の社会実装は製造業にも関連する環境技術の進展",
+      "one_line_summary": "マクニカがCO2削減の栽培培地を社会実装へ向けて進める"
     }
   ]
 }
