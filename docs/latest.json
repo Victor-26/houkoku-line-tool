@@ -1,38 +1,49 @@
 {
-  "updatedAt": "2026-06-29T22:07:43.546Z",
+  "updatedAt": "2026-06-30T22:15:05.966Z",
   "articles": [
     {
-      "source": "LNEWS",
-      "title": "国交省／新技術活用によるサプライチェーン全体輸送効率化などの実証に補助金",
-      "summary": "国土交通省は6月29日、サプライチェーン上の複数の事業者（発荷主・着荷主・輸送事業者の各1者以上を含む3者以上）が連携して取り組む高度なデジタル技術を活用したサプライチェーン全体の効率化や、輸送計画と連携したEVトラック […]\n国交省／新技術活用によるサプライチェーン全体輸送効率化などの実証に補助金 first appeared on 物流（ロジスティクス）ニュース ＬＮＥＷＳ.",
-      "url": "https://www.lnews.jp/2026/06/s0629104.html",
-      "publishedAt": "2026-06-29T07:35:52.000Z",
-      "score": 9,
-      "category": "補助金・支援策",
-      "reason": "サプライチェーンの効率化に向けた補助金は中小企業にとって重要な支援策",
-      "one_line_summary": "国交省がサプライチェーン効率化のための補助金を発表"
-    },
-    {
-      "source": "NHK 経済",
-      "title": "円相場 一時1ドル＝161円90銭台後半 約39年半ぶりの円安水準に",
-      "summary": "29日のニューヨーク外国為替市場では円を売ってドルを買う動きが進み、円相場は一時、1ドル＝161円90銭台まで値下がりし、1986年以来、およそ39年半ぶりの円安ドル高水準をつけました。アメリカのFR…",
-      "url": "https://news.web.nhk/newsweb/na/na-k10015164231000",
-      "publishedAt": "2026-06-29T20:29:52.000Z",
+      "source": "日刊鉄鋼新聞",
+      "title": "鋼矢板・鋼管杭など土木用鋼材／日本製鉄、７月契約から５０００円追加値上げ／中東影響でコスト高",
+      "summary": "",
+      "url": "https://www.japanmetaldaily.com/articles/-/262987",
+      "publishedAt": "2026-07-01T05:00:00.000Z",
       "score": 8,
-      "category": "市場・経済",
-      "reason": "円安は輸出入に直接影響し、経営判断に重要な要素",
-      "one_line_summary": "円相場が39年半ぶりの円安水準に達し、影響が懸念される"
+      "category": "コスト・原材料",
+      "reason": "鋼材の価格上昇は製造業のコストに直接影響し、迅速な対応が求められる。",
+      "one_line_summary": "土木用鋼材が5000円値上げ、コスト高が続く見通し"
     },
     {
-      "source": "Google News 植物工場",
-      "title": "マクニカ、リラタ社とMOUを締結し、CO2排出量を最大65分の1に削減する栽培培地の社会実装へ - ニコニコニュース",
-      "summary": "マクニカ、リラタ社とMOUを締結し、CO2排出量を最大65分の1に削減する栽培培地の社会実装へ  ニコニコニュース",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE80Yjdra3NHb3dOdDhLU2VZZzl2X3h0ZTNhcnZXMFBUYkpKMnZTNk9LY0d1akFaTmVPeTJzOTdRUUxlVVVaYVVaVGpsWFdWeW1HalNfR29CVU9VRjQ2NEpxTzlSb3oyLWJHd2M4enJXUmw4Q3V6Z2pWRFBR?oc=5",
-      "publishedAt": "2026-06-29T01:03:29.000Z",
+      "source": "LOGISTICS TODAY",
+      "title": "中小景況悪化、中東・原材料懸念増す",
+      "summary": "中小企業基盤整備機構が6月30日発表した第184回中小企業景況調査によると、2026年4-6月期の全産業の業況判断DIは前期比1.1ポイント低下のマイナス18.7となり、4期連続で悪化した。調査は6月1日時点で実施し、全 […]",
+      "url": "http://www.logi-today.com/971316",
+      "publishedAt": "2026-06-30T02:24:55.000Z",
       "score": 7,
-      "category": "水耕栽培・植物工場",
-      "reason": "CO2削減技術の社会実装は製造業にも関連する環境技術の進展",
-      "one_line_summary": "マクニカがCO2削減の栽培培地を社会実装へ向けて進める"
+      "category": "業界動向",
+      "reason": "中小企業の景況悪化は経営判断に影響を与える重要な情報。",
+      "one_line_summary": "中小企業の景況が悪化、原材料懸念が増加中"
+    },
+    {
+      "source": "Yahoo!ニュース 経済",
+      "title": "日立ソリューションズ西日本、AI類似図面検索の最新版リリース…ものづくりワールド東京 2026にも出展(レスポンス)",
+      "summary": "日立ソリューションズ西日本は、製造業向けのAI類似図面検索システム「Hi-PerBT 図面検索AI」の最新版を7月1日から提供開始する。\n\n同製品は7月1日～3日に東京ビッグサイトで開催される「ものづ",
+      "url": "https://news.yahoo.co.jp/articles/503e276528ec09e65596d919e790fed09b2a348f?source=rss",
+      "publishedAt": "2026-06-30T21:30:02.000Z",
+      "score": 6,
+      "category": "DX・技術",
+      "reason": "新しいAI技術は製造業の効率化に寄与し、導入検討の材料となる。",
+      "one_line_summary": "AI類似図面検索システムの最新版がリリース、製造業向け"
+    },
+    {
+      "source": "LNEWS",
+      "title": "日本GLP／東京都昭島市で大規模物流施設「ALFALINK」着工、2029年に3棟計83万m2へ",
+      "summary": "日本GLPは6月30日、東京都昭島市で進めている「ALFALINK東京昭島」プロジェクトのうち、物流施設1棟目に当たる「ALFALINK東京昭島3」の起工式を行った。 計3棟で総延床面積83万4278m2に上る開発計画で […]\n日本GLP／東京都昭島市で大規模物流施設「ALFALINK」着工、2029年に3棟計83万m2へ first appeared on 物流（ロジスティクス）ニュース ＬＮＥＷＳ.",
+      "url": "https://www.lnews.jp/2026/06/s0630606.html",
+      "publishedAt": "2026-06-30T08:00:47.000Z",
+      "score": 5,
+      "category": "物流関連",
+      "reason": "大規模物流施設の着工はサプライチェーンに影響を与える可能性がある。",
+      "one_line_summary": "東京都昭島市で大規模物流施設が着工、2029年に完成予定"
     }
   ]
 }
